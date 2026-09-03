@@ -1,0 +1,82 @@
+Module 1: Basic C++ Syntax & Program Structure  
+1.1 Anatomy of a C++ Program
+#include <iostream>      // Preprocessor directive
+using namespace std;     // Namespace declaration
+
+int main() {              // Entry point — execution always starts here
+  cout << "Hello, DSA!" << endl;   // Statement — ends with a semicolon
+    return 0;              // Exit status: 0 = success
+}
+
+1.2 Line-by-line breakdown
+Element
+Explanation
+#include <iostream>
+Preprocessor directive — pulls in the input/output library. Runs before compilation.
+using namespace std;
+Lets us write cout instead of std::cout.
+int main()
+Every C++ program needs exactly one main(). Return type int reports exit status to the OS.
+{ }
+Curly braces define a block — a group of statements.
+;
+Every statement ends with a semicolon — the #1 beginner compile error is forgetting this.
+//
+Single-line comment. /* ... */ for multi-line.
+return 0;
+Ends main(), 0 = program ran successfully.
+
+1.3 Compilation process (brief, conceptual)
+Source Code (.cpp) → Preprocessor → Compiler → Linker → Executable (.exe)
+
+Preprocessor handles #include, #define before actual compilation.
+Compiler translates C++ to machine code, catches syntax errors.
+Linker combines your code with library code (like iostream's implementation).
+1.4 Identifiers, Keywords, and Case Sensitivity
+int age = 21;        // 'age' is an identifier, 'int' is a keyword
+int Age = 22;         // Different variable! C++ is case-sensitive
+
+Rules for identifiers:
+Can contain letters, digits, underscore — must not start with a digit.
+Cannot be a reserved keyword (int, if, for, class, etc.)
+Convention: camelCase or snake_case for variables, meaningful names (totalMarks, not x)
+1.5 Whitespace & Indentation
+C++ ignores extra whitespace/line breaks — but always indent consistently. It's not enforced by the compiler, but unreadable code becomes a real problem once DSA logic gets nested (loops inside loops inside conditions).
+
+
+
+=> #include<iostream>
+using namespace std;
+
+
+int main(){
+    int n;
+    cout << " Enter the number: ";
+    cin>>n;
+
+    if(n>5){
+        cout<<" Genius!"<< endl;
+    }
+    else{
+        cout<<" Excllent! ";
+    }
+
+   
+    return 0;
+}
+
+=> Swap Two Numbers:
+
+void swap(int &a, int &b) {
+    // code here
+    // A1
+ /*  int temp = a+b;
+    b=temp-b;
+    a=temp-b;
+    */
+    
+    // A2
+    a=a+b;
+    b=a-b;
+    a=a-b;
+}
