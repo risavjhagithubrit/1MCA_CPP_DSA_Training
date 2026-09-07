@@ -1,0 +1,284 @@
+Module 2: Data Types 
+
+2.1 Why data types matter for DSA
+Every array, every variable holding an index, every function return value has a type. Picking the wrong type (e.g., int for a value that overflows) is a classic source of bugs in competitive coding — worth mentioning long long early.
+2.2 
+Primitive Data Types
+Type
+Typical Size
+Range (typical, signed)
+Example
+int
+4 bytes
+-2,147,483,648 to 2,147,483,647
+int x = 100;
+short
+2 bytes
+-32,768 to 32,767
+short s = 300;
+long
+4/8 bytes
+larger than int
+long l = 100000L;
+long long
+8 bytes
+~ -9.2×10¹⁸ to 9.2×10¹⁸
+long long big = 10000000000LL;
+float
+4 bytes
+~7 decimal digits precision
+float f = 3.14f;
+double
+8 bytes
+~15 decimal digits precision
+double d = 3.14159265;
+char
+1 byte
+single character
+char c = 'A';
+bool
+1 byte
+true (1) or false (0)
+bool flag = true;
+string
+varies
+text
+string name = "Rahul"; (#include <string>)
+
+
+
+
+
+B. Derived Data Types
+Created from primitive types.
+Examples
+Array
+Pointer
+Function
+Reference
+
+Array
+Stores multiple values of the same type.
+int marks[5];
+Memory
+|10|20|30|40|50|
+Advantages
+Contiguous memory
+Fast access
+
+Pointer
+Stores the address of another variable.
+int x = 10;
+
+int *ptr = &x;
+Interview Question
+Difference between
+x
+
+&x
+
+ptr
+
+*ptr
+Expected Answer
+x      -> value
+
+&x     -> address
+
+ptr    -> address
+
+*ptr   -> value stored at address
+
+Function
+Example
+int add(int a,int b)
+{
+    return a+b;
+}
+
+Reference
+Alias of another variable.
+int x = 10;
+
+int &y = x;
+Now
+x
+
+y
+refer to the same memory.
+
+C. User Defined Data Types
+Created by the programmer.
+Examples
+Structure
+Class
+Union
+Enumeration
+typedef / using
+
+Structure
+Groups different data.
+struct Student
+{
+    int roll;
+    string name;
+    float cgpa;
+};
+
+Class
+Adds
+Data
+Functions
+class Student
+{
+public:
+
+    int roll;
+
+    void display()
+    {
+    }
+};
+
+Enum
+Represents fixed constants.
+enum Day
+{
+    Mon,
+    Tue,
+    Wed
+};
+
+typedef
+Creates another name.
+typedef unsigned long long ull;
+
+ull number;
+Or, in modern C++:
+using ull = unsigned long long;
+
+Memory Representation
+Example
+int x = 15;
+Memory
+Address        Value
+
+1000           15
+Data type tells compiler
+Reserve
+
+4 bytes
+
+Interpret as integer
+
+Integer Ranges (Typical)
+Type
+Typical Size
+Typical Range
+short
+2 Bytes
+-32,768 to 32,767
+int
+4 Bytes
+-2,147,483,648 to 2,147,483,647
+long long
+8 Bytes
+±9 × 10¹⁸
+
+ 
+More bytes
+      ↓
+Larger range
+2.3 sizeof operator —  
+cout << "int: " << sizeof(int) << " bytes" << endl;
+cout << "double: " << sizeof(double) << " bytes" << endl;
+cout << "char: " << sizeof(char) << " bytes" << endl;
+
+2.4 Type Modifiers
+unsigned int positiveOnly = 4000000000;  // no negative values, larger positive range
+signed int normal = -100;                 // default behavior for int
+
+DSA relevance: array indices and sizes are often unsigned internally (size_t) — worth a one-line mention so it's not a mystery later.
+2.5 Constants and Literals
+const int MAX_SIZE = 100;      // value cannot change after this
+#define PI 3.14159             // preprocessor-based constant (older style)
+
+int decimalNum = 100;
+int octalNum = 0144;           // prefix 0 = octal
+int hexNum = 0x64;             // prefix 0x = hexadecimal
+char newline = '\n';           // escape sequence
+
+2.6 Type Conversion / Casting
+// Implicit conversion
+int a = 5;
+double b = a;      // int automatically becomes double: 5.0
+
+// Explicit conversion (casting)
+double pi = 3.14;
+int truncated = (int)pi;        // C-style cast → 3
+int truncated2 = int(pi);        // function-style cast → 3
+int truncated3 = static_cast<int>(pi); // modern C++ style → 3
+
+Important gotcha to demonstrate live:
+int a = 7, b = 2;
+cout << a / b;        // Output: 3 (integer division — decimal truncated!)
+cout << (float)a / b; // Output: 3.5 (cast forces decimal division)
+
+=> #include<iostream>
+ using namespace std;
+
+ int main(){
+    int n;
+    cin>>n;
+     cout << " Hello  Dsa! \n";
+
+    return 0;
+ }
+
+=> /* Pointers */
+#include<iostream>
+using namespace std;
+
+int main(){
+    int num = 43;
+    int* ptr = &num;
+
+    cout << &num << endl;
+    cout << *ptr;
+
+    return 0;
+}
+
+=> /*  Function */
+
+#include<iostream>
+using namespace std;
+
+int add(int a, int b){
+    return a+b;
+}
+int main(){
+    int a, b;
+    cout<< " Enter the value of a" << endl;
+    cin>>a;
+    cout<< " Enter the value of b" << endl;
+    cin>>b;
+    
+    cout << add(a,b);
+
+    return 0;
+}
+
+
+=> sizeof Operator:-
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    cout << " Size of char: " << sizeof(char) << " byte" << endl;
+
+    return 0;
+}
+
