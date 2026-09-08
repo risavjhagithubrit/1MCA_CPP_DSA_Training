@@ -1,0 +1,49 @@
+=> Practice Exercise  
+Declare variables of each primitive type and print their sizes using sizeof.
+Take two integers as input and print their division result both as truncated integer and as accurate decimal.
+Convert a char digit (e.g. '7') to its integer value using ASCII arithmetic: int val = ch - '0'; —  this works (ASCII values are sequential for '0'–'9') 
+
+=> 
+ #include<iostream>
+ using namespace std;
+
+ int main(){
+    char charDigit = '7';
+    // ASCII Arithmetic Conversion
+    int intValue = charDigit-'0';
+    
+    cout << charDigit << endl;
+    cout << intValue << endl;
+
+    cout << intValue << "+3= " << (intValue+3) << endl;
+
+    return 0;
+ }
+
+=> "What does (int)7.9 evaluate to?"
+   "Is C++ case-sensitive?"
+
+=> class Solution {
+  public:
+    int cppIntType() {
+        // code here
+        int i;
+        cin>>i;
+        return i;
+    }
+
+    char cppCharType() {
+        // code here
+        char ch;
+        cin>>ch;
+        return ch;
+    }
+
+        
+    float cppFloatType() {
+        // code here
+        float fl;
+        cin>>fl;
+        return fl;
+    }
+};
