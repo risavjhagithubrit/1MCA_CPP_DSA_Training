@@ -23,7 +23,9 @@ Convert a char digit (e.g. '7') to its integer value using ASCII arithmetic: int
 => "What does (int)7.9 evaluate to?"
    "Is C++ case-sensitive?"
 
-=> class Solution {
+=> GFG C++ Data Types Problem:
+
+class Solution {
   public:
     int cppIntType() {
         // code here
